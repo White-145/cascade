@@ -9,18 +9,16 @@ import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL30;
 import org.lwjgl.system.MemoryUtil;
 
-import java.util.concurrent.Callable;
-
 public class Window {
     private final long windowHandle;
-    private int height;
-    private Callable<Void> resizeFunc;
-    private int width;
+    private Engine engine;
     private MouseListener mouseListener;
     private KeyListener keyListener;
+    private int height;
+    private int width;
 
-    public Window(String title, WindowOptions opts, Callable<Void> resizeFunc) {
-        this.resizeFunc = resizeFunc;
+    public Window(Engine engine, WindowOptions options) {
+        this.engine = engine;
         if (!GLFW.glfwInit()) {
             throw new IllegalStateException("Unable to initialize GLFW");
         }
@@ -31,16 +29,16 @@ public class Window {
 
         GLFW.glfwWindowHint(GLFW.GLFW_CONTEXT_VERSION_MAJOR, 4);
         GLFW.glfwWindowHint(GLFW.GLFW_CONTEXT_VERSION_MINOR, 6);
-        if (opts.compatibleProfile) {
+        if (options.compatibleProfile) {
             GLFW.glfwWindowHint(GLFW.GLFW_OPENGL_PROFILE, GLFW.GLFW_OPENGL_COMPAT_PROFILE);
         } else {
             GLFW.glfwWindowHint(GLFW.GLFW_OPENGL_PROFILE, GLFW.GLFW_OPENGL_CORE_PROFILE);
             GLFW.glfwWindowHint(GLFW.GLFW_OPENGL_FORWARD_COMPAT, GL30.GL_TRUE);
         }
 
-        if (opts.width > 0 && opts.height > 0) {
-            this.width = opts.width;
-            this.height = opts.height;
+        if (options.width > 0 && options.height > 0) {
+            this.width = options.width;
+            this.height = options.height;
         } else {
             GLFW.glfwWindowHint(GLFW.GLFW_MAXIMIZED, GLFW.GLFW_TRUE);
             GLFWVidMode vidMode = GLFW.glfwGetVideoMode(GLFW.glfwGetPrimaryMonitor());
@@ -48,7 +46,7 @@ public class Window {
             height = vidMode.height();
         }
 
-        windowHandle = GLFW.glfwCreateWindow(width, height, title, MemoryUtil.NULL, MemoryUtil.NULL);
+        windowHandle = GLFW.glfwCreateWindow(width, height, options.title, MemoryUtil.NULL, MemoryUtil.NULL);
         if (windowHandle == MemoryUtil.NULL) {
             throw new RuntimeException("Failed to create the GLFW window");
         }
@@ -61,7 +59,7 @@ public class Window {
 
         GLFW.glfwMakeContextCurrent(windowHandle);
 
-        if (opts.fps > 0) {
+        if (options.fps > 0) {
             GLFW.glfwSwapInterval(0);
         } else {
             GLFW.glfwSwapInterval(1);
@@ -116,7 +114,7 @@ public class Window {
         this.width = width;
         this.height = height;
         try {
-            resizeFunc.call();
+            engine.resize();
         } catch (Exception e) {
             System.err.println("Error calling resize callback: " + e);
         }
@@ -131,6 +129,7 @@ public class Window {
     }
 
     public static class WindowOptions {
+        public String title = "Cascade";
         public boolean compatibleProfile;
         public int fps;
         public int height;

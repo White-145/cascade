@@ -1,24 +1,22 @@
 package me.white.cascade.render;
 
-import me.white.cascade.AssetManager;
+import me.white.cascade.Resource;
+import me.white.cascade.ResourceManager;
 import me.white.cascade.Scene;
 import me.white.cascade.Window;
 import me.white.cascade.render.model.Mesh;
 import me.white.cascade.render.model.Model;
 import me.white.cascade.render.shader.ShaderProgram;
 import me.white.cascade.render.shader.UniformsMap;
-import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL46;
 
 public class SceneRender {
+    private static final Resource SCENE_SHADER_RESOURCE = new Resource(Resource.ASSET_SHADER, "scene");
     private ShaderProgram shaderProgram;
     private UniformsMap uniformsMap;
 
     public SceneRender() {
-        GL.createCapabilities();
-        GL46.glEnable(GL46.GL_CULL_FACE);
-        GL46.glEnable(GL46.GL_DEPTH_TEST);
-        shaderProgram = AssetManager.getShader("default");
+        shaderProgram = ResourceManager.getShader(SCENE_SHADER_RESOURCE);
         uniformsMap = shaderProgram.getUniformsMap();
         createUniforms();
     }
@@ -33,6 +31,7 @@ public class SceneRender {
 
     public void render(Window window, Scene scene) {
         GL46.glClear(GL46.GL_COLOR_BUFFER_BIT | GL46.GL_DEPTH_BUFFER_BIT);
+        GL46.glClearColor(0.1f, 0.075f, 0.05f, 1.0f);
         GL46.glViewport(0, 0, window.getWidth(), window.getHeight());
 
         shaderProgram.bind();

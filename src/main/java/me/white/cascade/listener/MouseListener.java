@@ -39,6 +39,8 @@ public class MouseListener {
         }
         previousScroll.x = currentScroll.x;
         previousScroll.y = currentScroll.y;
+        currentScroll.x = 0;
+        currentScroll.y = 0;
     }
 
     public boolean isInWindow() {
@@ -57,7 +59,7 @@ public class MouseListener {
         if (previousPos == null) {
             return new Vector2f(currentPos);
         }
-        return new Vector2f(currentPos).sub(previousPos);
+        return currentPos.sub(previousPos, new Vector2f());
     }
 
     public Vector2f getPreviousScroll() {
@@ -66,6 +68,13 @@ public class MouseListener {
 
     public Vector2f getCurrentScroll() {
         return currentScroll;
+    }
+
+    public Vector2f getScrollDifference() {
+        if (previousScroll == null) {
+            return new Vector2f(currentScroll);
+        }
+        return currentScroll.sub(previousScroll, new Vector2f());
     }
 
     public boolean isMouseButtonPressed(int button) {

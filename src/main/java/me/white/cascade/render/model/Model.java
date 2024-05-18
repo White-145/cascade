@@ -1,7 +1,7 @@
 package me.white.cascade.render.model;
 
 import com.google.gson.*;
-import me.white.cascade.AssetManager;
+import me.white.cascade.ResourceManager;
 import me.white.cascade.Resource;
 import org.joml.Vector3f;
 
@@ -78,7 +78,7 @@ public class Model {
             normalArray[3 * third + 1] = normal.y;
             normalArray[3 * third + 2] = normal.z;
         }
-        mesh = new Mesh(AssetManager.getTexture(textureResource), positionArray, uvArray, normalArray, facesArray);
+        mesh = new Mesh(ResourceManager.getTexture(textureResource), positionArray, uvArray, normalArray, facesArray);
     }
 
     public void cleanup() {

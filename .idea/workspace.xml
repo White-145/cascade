@@ -4,43 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="90fac04b-b476-491d-b864-cab30dc5c79f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/AssetManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/Engine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/Resource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/Scene.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/Window.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/listener/KeyListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/listener/MouseListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/render/Camera.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/render/SceneRender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/render/Texture.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/render/model/Mesh.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/render/model/Model.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/render/model/Transformation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/render/shader/Projection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/render/shader/ShaderProgram.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/render/shader/UniformsMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/models/cube.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/shaders/default.fsh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/shaders/default.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/shaders/default.vsh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/default.png" afterDir="false" />
+    <list default="true" id="90fac04b-b476-491d-b864-cab30dc5c79f" name="Changes" comment="ujj">
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/render/Render.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/render/gui/Gui.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/render/gui/GuiMesh.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/render/gui/GuiRender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/util/BiMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/white/game/MyGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/white/game/MyGui.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/shaders/gui.fsh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/shaders/gui.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/shaders/gui.vsh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/white/cascade/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/white/cascade/AssetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/ResourceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/white/cascade/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/Engine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/white/cascade/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/white/game/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/white/cascade/Resource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/Resource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/white/cascade/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/Scene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/white/cascade/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/white/cascade/listener/MouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/listener/MouseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/white/cascade/render/SceneRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/render/SceneRender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/white/cascade/render/Texture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/render/Texture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/white/cascade/render/model/Mesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/render/model/Mesh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/white/cascade/render/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/white/cascade/render/model/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/shaders/default.fsh" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/shaders/scene.fsh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/shaders/default.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/shaders/scene.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/shaders/default.vsh" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/shaders/scene.vsh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +124,7 @@
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="me.white.cascade.Main" />
+      <option name="MAIN_CLASS_NAME" value="me.white.game.Main" />
       <module name="cascade.main" />
       <extension name="coverage">
         <pattern>
@@ -180,6 +173,19 @@
       <option name="presentableId" value="Default" />
       <updated>1708945450753</updated>
     </task>
+    <task id="LOCAL-00001" summary="uhh">
+      <created>1715699405973</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1715699405973</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="uhh" />
+    <MESSAGE value="ujj" />
+    <option name="LAST_COMMIT_MESSAGE" value="ujj" />
   </component>
 </project>

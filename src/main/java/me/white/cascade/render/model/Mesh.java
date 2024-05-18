@@ -1,6 +1,6 @@
 package me.white.cascade.render.model;
 
-import me.white.cascade.AssetManager;
+import me.white.cascade.ResourceManager;
 import me.white.cascade.render.Texture;
 import org.lwjgl.opengl.GL46;
 import org.lwjgl.system.MemoryStack;
@@ -18,6 +18,7 @@ public class Mesh {
 
     public Mesh(Texture texture, float[] positions, float[] uvs, float[] normals, int[] indices) {
         this.texture = texture;
+        ResourceManager.add(texture);
         try (MemoryStack stack = MemoryStack.stackPush()) {
             numVertices = indices.length;
 
@@ -72,9 +73,6 @@ public class Mesh {
             GL46.glDeleteBuffers(vboId);
         }
         GL46.glDeleteVertexArrays(vaoId);
-        if (!AssetManager.has(texture)) {
-            texture.cleanup();
-        }
     }
 
     public Texture getTexture() {

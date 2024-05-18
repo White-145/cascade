@@ -1,7 +1,7 @@
 package me.white.cascade.render;
 
 import me.white.cascade.Resource;
-import org.lwjgl.opengl.GL30;
+import org.lwjgl.opengl.GL46;
 import org.lwjgl.stb.STBImage;
 import org.lwjgl.system.MemoryStack;
 
@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 
-public class Texture {
+public class Texture  {
     private final int textureId;
     private final String path;
 
@@ -37,25 +37,34 @@ public class Texture {
                 throw new IllegalStateException("Could not load texture '" + path + "': " + STBImage.stbi_failure_reason());
             }
 
-            textureId = GL30.glGenTextures();
-
-            GL30.glBindTexture(GL30.GL_TEXTURE_2D, textureId);
-            GL30.glPixelStorei(GL30.GL_UNPACK_ALIGNMENT, 1);
-            GL30.glTexParameteri(GL30.GL_TEXTURE_2D, GL30.GL_TEXTURE_MIN_FILTER, GL30.GL_NEAREST);
-            GL30.glTexParameteri(GL30.GL_TEXTURE_2D, GL30.GL_TEXTURE_MAG_FILTER, GL30.GL_NEAREST);
-            GL30.glTexImage2D(GL30.GL_TEXTURE_2D, 0, GL30.GL_RGBA, width.get(), height.get(), 0, GL30.GL_RGBA, GL30.GL_UNSIGNED_BYTE, buffer);
-            GL30.glGenerateMipmap(GL30.GL_TEXTURE_2D);
-
-            STBImage.stbi_image_free(buffer);
+            textureId = genTexture(width.get(), height.get(), buffer);
         }
     }
 
+    public Texture(int width, int height, ByteBuffer buffer) {
+        path = "...";
+        textureId = genTexture(width, height, buffer);
+    }
+
+    public int genTexture(int width, int height, ByteBuffer buffer) {
+        int textureId = GL46.glGenTextures();
+        GL46.glBindTexture(GL46.GL_TEXTURE_2D, textureId);
+        GL46.glPixelStorei(GL46.GL_UNPACK_ALIGNMENT, GL46.GL_TRUE);
+        GL46.glTexParameteri(GL46.GL_TEXTURE_2D, GL46.GL_TEXTURE_MIN_FILTER, GL46.GL_NEAREST);
+        GL46.glTexParameteri(GL46.GL_TEXTURE_2D, GL46.GL_TEXTURE_MAG_FILTER, GL46.GL_NEAREST);
+        GL46.glTexImage2D(GL46.GL_TEXTURE_2D, 0, GL46.GL_RGBA, width, height, 0, GL46.GL_RGBA, GL46.GL_UNSIGNED_BYTE, buffer);
+        GL46.glGenerateMipmap(GL46.GL_TEXTURE_2D);
+
+        STBImage.stbi_image_free(buffer);
+        return textureId;
+    }
+
     public void bind() {
-        GL30.glBindTexture(GL30.GL_TEXTURE_2D, textureId);
+        GL46.glBindTexture(GL46.GL_TEXTURE_2D, textureId);
     }
 
     public void cleanup() {
-        GL30.glDeleteTextures(textureId);
+        GL46.glDeleteTextures(textureId);
     }
 
     public String getPath() {

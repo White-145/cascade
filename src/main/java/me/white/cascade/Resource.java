@@ -40,6 +40,10 @@ public class Resource {
         return type.path + "/" + path + "." + type.extension;
     }
 
+    public Type getType() {
+        return type;
+    }
+
     public byte[] readBytes() throws IOException {
         if (data == null) {
             data = CLASS_LOADER.getResourceAsStream(getPath()).readAllBytes();
@@ -55,16 +59,18 @@ public class Resource {
         return new String(bytes);
     }
 
-    public Type getType() {
-        return type;
-    }
-
     public boolean isOf(Type type) {
         return type == this.type;
     }
 
     @Override
     public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (obj == this) {
+            return true;
+        }
         if (obj instanceof Resource resource) {
             return type == resource.type && path.equals(resource.path);
         }
@@ -73,6 +79,6 @@ public class Resource {
 
     @Override
     public int hashCode() {
-        return 37 * (37 * type.path.hashCode() + type.extension.hashCode()) + path.hashCode();
+        return 31 * (31 * type.path.hashCode() + type.extension.hashCode()) + path.hashCode();
     }
 }
